@@ -18,10 +18,10 @@ I was pretty sure I knew what I needed to set the switch statement to, but I nee
 ```
 
 The tests matched my expectations and am using the following switch criteria:
-* 0|0|* - Shouldn't be possible to have _PF.ARRAYCHOICE before, but even if you do, it isn't important. In the test, this was 0|0|0.
-* 0|1|0 - Rolled, but haven't made a choice yet. This has to be explicit.
-* 0|1|1 - Rolled, and made a choice. This has to be explicit.
-* 1|*|* - CMD-VALIDATE should prevent _PF.STATLOCK from being true while the other two are not. The reason I don't care about the latter two entries is the edge case where this is done by a wizard. In the test, this was 1|1|1.
+* 0 0 * = Shouldn't be possible to have _PF.ARRAYCHOICE before, but even if you do, it isn't important. In the test, this was 0 0 0.
+* 0 1 0 = Rolled, but haven't made a choice yet. This has to be explicit.
+* 0 1 1 = Rolled, and made a choice. This has to be explicit.
+* 1 * * = CMD-VALIDATE should prevent _PF.STATLOCK from being true while the other two are not. The reason I don't care about the latter two entries is the edge case where this is done by a wizard. In the test, this was 1 1 1.
 
 Here is a snip of the description:
 
