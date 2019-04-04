@@ -1,0 +1,57 @@
+---
+layout: post
+title:  Switch()
+date:   2019-04-03 22:23:00 -0500
+categories: pathfinder
+---
+I really should be using switch() for my room descriptions when they are "phased" depending on the status of whether or not attributes exist.
+
+Pseudocode here:
+```
+if !_pf.statlock && !_pf.rolled?
+    Roll some dice
+    
+if !_pf.statlock && _pf.rolled?
+    Pick the rolled dice or use pregenerated dice.
+    
+if !_pf.statlock && _pf.rolled
+    Assign your stats
+    
+    if race != human/half-elf/half-orc
+        Race will receive bonuses... upon validation.
+    else
+        if !bonus
+            Race is diverse. use bonus <attribute> to select an attibute to receive a +2 bonus.
+        else
+            You will receive a +2 bonus to <attribute> when upon validation.
+    
+    Type validate when you are done.
+    You can type reset if you wish to start over.
+
+if _pf.statlock
+    Here are the stats you chose.
+    You can type reset if you wish to start over.
+```
+
+Here's a good example of how switch() works:
+```
+&CMD-BONUS Step 3=
+$bonus *:@switch/first [not(hasattr(%#,_PF.STATLOCK))]|[t(grab(get(#66/LIST_PF.ATTRIBUTE),%0*))]=
+
+0|*,{@pemit %#=You can only set your bonus attribute before you [ansi(v(HCOLOR),validate)].},
+
+1|0,{@pemit %#=[capstr(%0)] isn't a valid attribute.},
+
+1|1,{@pemit %#=You set [capstr(grab(get(#66/LIST_PF.ATTRIBUTE),%0*))] as your bonus attribute.;@set %#=_PF.ATTRBONUS:[capstr(grab(get(#66/LIST_PF.ATTRIBUTE),%0*))]}
+```
+So, I check to see if it does _not_ have _PF.STATLOCK (I set this to 1 when finalizing attribute assignment). I insert a pipe, which is just a handy non-space delimiter, and then check to see if the attribute they are trying to give themselves as a bonus even exists in the list.
+
+The first case matches if they do have _PF.STATLOCK and literally any sort of attribute. If so, you should have done this before validating. The validate command checks for this, so it's a state nobody should be able to get to.
+
+The second case matches if you do not have _PF.STATLOCK and pick something that doesn't match an item on LIST_PF.ATTRIBUTE.
+
+The third actually sets _PF.ATTRBONUS, but only if you are not validated and you pick something from the list.
+
+The way I have the room description right now is four big blocks of code. There is some repetition in what I keep checking for. I should just check all the attributes I care about once, as soon as you trigger the description by looking at the room. 
+
+So, that rewrite is on the docket for tomorrow.
