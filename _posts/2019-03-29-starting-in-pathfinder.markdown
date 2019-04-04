@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Starting Pathfinder
-date:   2019-03-29 22:03:47 -0500
+date:   2019-03-29 22:03
 categories: pathfinder
 ---
 This started off as a Pathfinder project. There are more things that I want to do in the world than just write the code. I want to play and DM, but I'm fussy as hell about code. 

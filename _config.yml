@@ -19,8 +19,7 @@ description: ""
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://hexagoncode.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 header_pages:
-date_format: "%Y-%m-%d"
-timezone: America/New_York
+timezone: "America/New_York"
 
 # Build settings
 markdown: kramdown
@@ -28,9 +27,10 @@ kramdown:
     highlighter: rouge
 highlighter: rouge
 theme: minima
+minima:
+  date_format: "%Y-%m-%d %H:%m"
 plugins:
   - jekyll-feed
-
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
