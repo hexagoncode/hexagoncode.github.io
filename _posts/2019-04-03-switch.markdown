@@ -2,7 +2,7 @@
 layout: post
 title:  Switch()
 date:   2019-04-03 22:23
-categories: mushcode functions
+categories: Mushcode
 ---
 I really should be using switch() for my room descriptions when they are "phased" depending on the status of whether or not attributes exist.
 

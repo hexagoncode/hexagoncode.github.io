@@ -2,7 +2,7 @@
 layout: post
 title:  Information Storage Requirements
 date:   2019-04-04 14:31
-categories: pathfinder systems
+categories: Pathfinder
 ---
 I am going to need to make some decisions. What do I want to model and what do I want to leave up to the players? Are my existing attributes names scalable? 
 

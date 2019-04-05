@@ -2,7 +2,7 @@
 layout: post
 title:  External Data Import
 date:   2019-04-04 07:10
-categories: systems
+categories: Ideas
 ---
 I need to figure out how to import data from external sources into the game. I think there is some code at https://github.com/thenomain/Mu--Support-Systems/tree/master/Weather I can look at. A cursory look suggests it is using a site's API to download a copy of a file, chop it up, and serve it out as help file. This is brilliant.
 

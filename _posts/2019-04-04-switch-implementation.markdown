@@ -2,7 +2,7 @@
 layout: post
 title:  Switch() Implementation
 date:   2019-04-04 10:43
-categories: mushcode functions
+categories: [ Mushcode, Pathfinder ]
 ---
 I wanted to follow up on what implementing switch() into a @description to make a phased or state-based room looks like. This will probably be really important later with different kind of vision modes. Consider what a candlelit room might look like to someone with normal vision, low-light vision, and darkvision.
 
